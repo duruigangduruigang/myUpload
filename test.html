@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>ajax进度</title>
+		<style type="text/css">
+			#send {
+				background: rgb(89, 171, 89);
+				color: #fff;
+				line-height: 40px;
+				font-size: 20px;
+				height: 40px;
+				width: 100px;
+				border: none;
+			}
+			.previewArea {
+				width: 150px;
+			}
+			.previewArea > div {
+				display: inline-block;
+				width: 150px;
+				height: 150px;
+				position: relative;
+			}
+			.previewArea > div > a {
+				position: absolute;
+				top: 0px;
+				right: 20px;
+				font-size: 14px;
+				text-decoration: none;
+				color: #666;
+			}
+			.previewArea > div > img {
+				width: 120px;
+				height: 120px;
+				margin-top: 20px;
+			}
+			.previewArea > div > strong {
+				position: absolute;
+				left: 10px;
+			}
+			#status {
+				width: 500px;
+				height: 20px;
+				border-radius: 10px;
+				background: green;
+				margin-top: 50px;
+				display: none;
+			}
+			#test {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="sendBtns">上传</button>
+		<input type="file" id="test" name="filename" />
+		<button id="send">上传图片</button>
+		<div id="status"></div>
+		<script type="text/javascript" src="upload.js"></script>
+		<script type="text/javascript">
+		var spanBtn = document.querySelector("#send"),
+			file = document.querySelector("#test"),
+			sendBtn = document.querySelector("#sendBtns"),
+			test = new Upload({
+				maxSize: 51200, 
+				exts: ["png", "jpeg"], 
+				preview: true}, 
+				file, spanBtn, null, sendBtn, "test.php");
+		</script>
+	</body>
+</html>
